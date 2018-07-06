@@ -1,2 +1,26 @@
-<h1>Hello new method!</h1>
-<p>form for new goes here</p>
+<h1>Hello new form goes here!</h1>
+
+<%= form_tag '/client/contacts/', method: :post do %>
+  <div>
+    <label>First Name: </label><input type="text" name="input_first_name" id="input_first_name">
+  </div>
+  <div>
+    <label>Last Name: </label><input type="text" name="input_last_name" id="input_last_name">
+  </div>
+  <div>
+    <label>Email: </label><input type="text" name="input_email" id="input_email">
+  </div>
+  <div>
+    <label>Phone Number: </label><input type="text" name="input_phone_number" id="input_phone_number">
+  </div>
+  <div>
+    <input class="button" type="submit" name="submit" id="submit">
+  </div>
+<% end %>
+
+<h3>Return home, doing nothing</h3>
+<a href="/client/contacts/">
+  <button class="button">
+    Go Home
+  </button> 
+</a>

@@ -14,30 +14,55 @@ class Client::ContactsController < ApplicationController
 
   def create
     # sends create request to api
-    render 'show.html.erb'
+
+    response = Unirest.post("http://localhost:3000/api/contacts/",
+        parameters: {
+          input_first_name: params['input_first_name'],
+          input_last_name: params['input_last_name'],
+          input_email: params['input_email'],
+          input_phone_number: params['input_phone_number']
+        })
+    @contact = response.body
+    # render 'show.html.erb'
+    redirect_to "client/contacts/#{}"
   end
 
   def show
     # get info from single product
     contact_id = params[:id]
-    response = Unirest.get("localhost:3000/api/#{contact_id}")
+    response = Unirest.get("localhost:3000/api/contacts/#{contact_id}")
+    @contact = response.body
     # send to show page
     render 'show.html.erb'
   end
 
   def edit
     # gets info from single product
+    contact_id = params[:id]
+    response = Unirest.get("localhost:3000/api/contacts/#{contact_id}")
+    @contact = response.body
     # sends it to a form page
     render 'edit.html.erb'
   end
 
   def update
     # updates info from form page
+    contact_id = params[:id]
+    response = Unirest.patch("http://localhost:3000/api/contacts/#{contact_id}",
+      parameters: {
+        input_first_name: params[:input_first_name],
+        input_last_name: params[:input_last_name],
+        input_email: params[:input_email],
+        input_phone_number: params[:input_phone_number]
+      })
+    @contact = response.body
     render 'show.html.erb'
   end
 
   def destroy
     # sends delete request to api with specific id
+    contact_id = params[:id]
+    Unirest.delete("http://localhost:3000/api/contacts/#{contact_id}")
     render 'destroy.html.erb'
   end
 end

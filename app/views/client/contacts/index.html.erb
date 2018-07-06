@@ -1,9 +1,20 @@
 <h1>All Contacts</h1>
+<a href="/client/contacts/new">
+  <button class="button">
+    Add a new contact!
+  </button> 
+</a>
+<hr>
 <% @contacts.each do |contact| %>
   <p>Id:<%= contact['id'] %> </p>
   <p>First Name:  <%= contact['first_name'] %> </p>
   <p>Last Name: <%= contact['last_name'] %> </p>
   <p>Email: <%= contact['email'] %> </p>
   <p>Phone Number <%= contact['phone_number'] %> </p>
+  <a href="/client/contacts/<%= contact['id'] %>/edit">
+    <button class="button">
+      Edit
+    </button> 
+  </a>
   <hr>
 <% end %>

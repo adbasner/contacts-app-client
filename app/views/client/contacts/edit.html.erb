@@ -1,2 +1,38 @@
-<h1>Edit Page</h1>
-<p>Form for editing goes here</p>
+<h1>Editing Contact <%= @contact['id'] %></h1>
+<p></p>
+
+
+<%= form_tag "/client/contacts/#{@contact['id']}", method: :patch do %>
+  <div>
+    <label>First Name: </label><input type="text" name="input_first_name" id="input_first_name" value="<%= @contact['first_name'] %>">
+  </div>
+  <div>
+    <label>Last Name: </label><input type="text" name="input_last_name" id="input_last_name" value="<%= @contact['last_name'] %>">
+  </div>
+  <div>
+    <label>Email: </label><input type="text" name="input_email" id="input_email" value="<%= @contact['email'] %>"> 
+  </div>
+  <div>
+    <label>Phone Number: </label><input type="text" name="input_phone_number" id="input_phone_number" value="<%= @contact['phone_number'] %>">
+  </div>
+  <div>
+    <input class="button" type="submit" name="submit" id="submit" value="update">
+  </div>
+<% end %>
+
+<h3>Delete this item!</h3>
+
+
+<%= form_tag "/client/contacts/#{@contact['id']}", method: :delete do %>
+  <div>
+    <input class="button" type="submit" name="delete" id="delete" value="Delete this item">  
+  </div>
+<!-- </form> -->
+<% end %>
+
+<h3>Return home, doing nothing</h3>
+<a href="/client/contacts/">
+  <button class="button">
+    Go Home
+  </button> 
+</a>

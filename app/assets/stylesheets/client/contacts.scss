@@ -1,3 +1,17 @@
 // Place all the styles related to the client/contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font-family: sans-serif;
+}
+.button {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: dodgerblue;
+  color: white;
+  width: 150px;
+  border: 2px solid #0C70FF;
+  font-size: 14px;
+  font-family: sans-serif;
+
+}
