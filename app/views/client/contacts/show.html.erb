@@ -5,9 +5,11 @@
 <p>Last Name: <%= @contact['last_name'] %> </p>
 <p>Email: <%= @contact['email'] %> </p>
 <p>Phone Number: <%= @contact['phone_number'] %> </p>
-
+<p>Last updated on: <%= @contact['formatted']['updated_at'] %></p>
 <a href="/client/contacts/">
-  <button class="button">
-    Go Home
-  </button> 
+  <button class="button">Home</button>
+</a> 
+
+<a href="/client/contacts/<%= @contact['id'] %>/edit">
+  <button class="button">Edit</button> 
 </a>

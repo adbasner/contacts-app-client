@@ -7,13 +7,15 @@
 <hr>
 <% @contacts.each do |contact| %>
   <p>Id:<%= contact['id'] %> </p>
-  <p>First Name:  <%= contact['first_name'] %> </p>
-  <p>Last Name: <%= contact['last_name'] %> </p>
+  <p>Name: <%= contact['formatted']['full_name'] %> </p>
+<!--   <p>First Name:  <%= contact['first_name'] %> </p>
+  <p>Last Name: <%= contact['last_name'] %> </p> -->
   <p>Email: <%= contact['email'] %> </p>
-  <p>Phone Number <%= contact['phone_number'] %> </p>
-  <a href="/client/contacts/<%= contact['id'] %>/edit">
+  <p>Phone Number: <%= contact['phone_number'] %> </p>
+  <p>Last updated on: <%= contact['formatted']['updated_at'] %></p>
+  <a href="/client/contacts/<%= contact['id'] %>/">
     <button class="button">
-      Edit
+      View
     </button> 
   </a>
   <hr>
