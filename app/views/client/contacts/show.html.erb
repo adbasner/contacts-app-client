@@ -4,7 +4,7 @@
 <p>First Name: <%= @contact['first_name'] %> </p>
 <p>Last Name: <%= @contact['last_name'] %> </p>
 <p>Email: <%= @contact['email'] %> </p>
-<p>Phone Number: <%= @contact['phone_number'] %> </p>
+<p>Phone Number: <%= @contact['formatted']['japanese_number'] %> </p>
 <p>Last updated on: <%= @contact['formatted']['updated_at'] %></p>
 <a href="/client/contacts/">
   <button class="button">Home</button>
