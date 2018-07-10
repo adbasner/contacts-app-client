@@ -18,13 +18,14 @@ class Client::ContactsController < ApplicationController
     response = Unirest.post("http://localhost:3000/api/contacts/",
         parameters: {
           input_first_name: params['input_first_name'],
+          input_middle_name: params['input_middle_name'],
           input_last_name: params['input_last_name'],
           input_email: params['input_email'],
           input_phone_number: params['input_phone_number']
         })
     @contact = response.body
     # render 'show.html.erb'
-    redirect_to "client/contacts/#{}"
+    redirect_to "/client/contacts/#{params['id']}"
   end
 
   def show
@@ -51,6 +52,7 @@ class Client::ContactsController < ApplicationController
     response = Unirest.patch("http://localhost:3000/api/contacts/#{contact_id}",
       parameters: {
         input_first_name: params[:input_first_name],
+        input_middle_name: params[:input_middle_name],
         input_last_name: params[:input_last_name],
         input_email: params[:input_email],
         input_phone_number: params[:input_phone_number]
