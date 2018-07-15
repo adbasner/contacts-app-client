@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <p><a href="/client/signup">Sign Up</a></p>
+    <p><a href="/client/login">Log In</a></p>
+    <p><a href="/client/logout" data-method="delete">Log Out</a></p>
+    <p><%= @jwt %></p>
+    <% flash.each do |key, message| %>
+      <p><%= message %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

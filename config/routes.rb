@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/' => 'client/contacts#index'
   namespace :client do
     get '/contacts/' => 'contacts#index'
     get '/contacts/new' => 'contacts#new'
@@ -8,5 +9,13 @@ Rails.application.routes.draw do
     get '/contacts/:id/edit' => 'contacts#edit'
     patch '/contacts/:id' => 'contacts#update'
     delete '/contacts/:id' => 'contacts#destroy'
+
+    # login stuff
+    get "/signup" => "users#new"
+    post "/users" => "users#create"
+    get "/login" => "sessions#new"
+    post "/login" => "sessions#create"
+    delete "/logout" => "sessions#destroy"
+
   end
 end
